@@ -10,6 +10,10 @@
 
     <name>nimrod-java</name>
     <description>Nimrod Logger for Java and other JVM languages</description>
+    
+    <scm>
+        <developerConnection>scm:git:ssh://git@github.com/sbtourist/nimrod-java.git</developerConnection>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
