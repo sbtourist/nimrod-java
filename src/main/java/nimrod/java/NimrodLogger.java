@@ -4,6 +4,7 @@ import com.google.common.base.Joiner;
 import java.util.Date;
 import java.util.concurrent.ConcurrentMap;
 import com.google.common.collect.MapMaker;
+import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +27,7 @@ public class NimrodLogger {
     private static final String STOP_TIMER = "stop";
     private static final String TEMPLATE_WITH_TAGS = "[{}][{}][{}][{}][{}][{}]";
     private static final String TEMPLATE_WITH_NO_TAGS = "[{}][{}][{}][{}][{}]";
+    private static final Pattern NORMALIZING_PATTERN = Pattern.compile("[^a-zA-Z0-9]");
     //
     private static final ConcurrentMap<String, NimrodLogger> LOGGERS = new MapMaker().softValues().<String, NimrodLogger>makeMap();
     //
@@ -64,6 +66,10 @@ public class NimrodLogger {
 
     public static String suffixWithThreadId(String name) {
         return name + "." + (Thread.currentThread().getName().hashCode() & Integer.MAX_VALUE);
+    }
+    
+    public static String normalize(String s) {
+        return NORMALIZING_PATTERN.matcher(s).replaceAll("_");
     }
 
     public static String start() {
