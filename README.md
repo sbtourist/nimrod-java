@@ -59,7 +59,7 @@ With the following dependency declaration dependency:
     <dependency>
         <groupId>nimrod</groupId>
        <artifactId>nimrod-java</artifactId>
-       <version>1.1</version>
+       <version>1.2</version>
     </dependency>
 
 Please note you have to specify the desired SLF4J binding in your own project, as Nimrod-Java doesn't come with any in order not to cause any conflicts.
